@@ -5,7 +5,9 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task_StaticExtension", "Task_StaticExtension\Task_StaticExtension.csproj", "{CF009E01-03EC-4AC4-9B63-43EE66C389D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_IndexerExtension", "Task_IndexerExtension\Task_IndexerExtension.csproj", "{BF651BFD-F6AF-41E6-8D28-009C8B1AD6BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task_IndexerExtension", "Task_IndexerExtension\Task_IndexerExtension.csproj", "{BF651BFD-F6AF-41E6-8D28-009C8B1AD6BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task_ExceptionReflection", "Task_ExceptionReflection\Task_ExceptionReflection.csproj", "{F2349D1D-5120-4056-8124-CBC29F9CC2F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{BF651BFD-F6AF-41E6-8D28-009C8B1AD6BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF651BFD-F6AF-41E6-8D28-009C8B1AD6BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF651BFD-F6AF-41E6-8D28-009C8B1AD6BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2349D1D-5120-4056-8124-CBC29F9CC2F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2349D1D-5120-4056-8124-CBC29F9CC2F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2349D1D-5120-4056-8124-CBC29F9CC2F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2349D1D-5120-4056-8124-CBC29F9CC2F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
