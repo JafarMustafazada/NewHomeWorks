@@ -14,6 +14,11 @@ public class Employee : Person
     public decimal Salary { get; set; }
     public string Position { get; set; }
 
+    public Employee() 
+    { 
+        CompanyDatabase.EmployeesList.Add(this);
+    }
+
     public override string FullName()
     {
         return base.FullName() + "\nAs employee:\n\tGender: " + Gender

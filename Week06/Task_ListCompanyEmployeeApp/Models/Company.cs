@@ -14,33 +14,44 @@ public class Company
     {
         Name = name;
         this._employees = new List<Employee>();
+        CompanyDatabase.CompaniesList.Add(this);
     }
 
     public void AddEmployee(Employee employee)
     {
         this._employees.Add(employee);
     }
-    public Employee GetEmployee(int id)
+    public Employee GetEmployeeById(int id)
     {
-        foreach (Employee emp in this._employees)
-        {
-            if (emp.ID == id) return emp;
-        }
+        Employee? emp = this._employees.SingleOrDefault(item => item.ID == id);
+        if (emp != null) return emp;
+        throw new EmployeeExceptions(EmployeeExceptions.NotFounded);
+    }
+    public Employee GetFirstEmployee(Func<Employee, bool> match)
+    {
+        Employee? emp = this._employees.FirstOrDefault(match);
+        if (emp != null) return emp;
         throw new EmployeeExceptions(EmployeeExceptions.NotFounded);
     }
     public List<Employee> GetEmployees()
     {
         return this._employees;
     }
+    public List<Employee> GetAllEmployees(Func<Employee, bool> match)
+    {
+        List<Employee> newList = new List<Employee>();
+        this._employees.ForEach(item => newList.Add(item));
+        if (newList.Count > 0) return newList;
+        throw new EmployeeExceptions(EmployeeExceptions.NotFounded);
+    }
     public void UpdateEmployee(Employee employee)
     {
-        this.GetEmployee(employee.ID);
+        this.GetEmployeeById(employee.ID);
         Console.WriteLine("1. Update Name");
         Console.WriteLine("2. Update Gender");
         Console.WriteLine("3. Update Salary");
         Console.WriteLine("4. Update Position");
         Console.Write("Your action: ");
-        int IInput;
 
         switch (Console.ReadLine())
         {
@@ -68,6 +79,20 @@ public class Company
     }
     public void RemoveEmployee(Employee employee)
     {
-        this._employees.Remove(this.GetEmployee(employee.ID));
+        this._employees.Remove(this.GetEmployeeById(employee.ID));
     }
+    public void RemoveAll()
+    {
+        this._employees.Clear();
+    }
+    public int RemoveAll(Func<Employee, bool> match)
+    {
+        return this._employees.RemoveAll(emp => match(emp));
+    }
+}
+
+public static class CompanyDatabase
+{
+    static public List<Employee> EmployeesList = new List<Employee>();
+    static public List<Company> CompaniesList = new List<Company>();
 }
