@@ -1,0 +1,24 @@
+﻿using MVC_OneToMany.Models;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace MVC_OneToMany.Areas.Admin.ViewModels
+{
+    public class AdminProductVM
+    {
+        public int Id { get; set; }
+
+        [MaxLength(64)]
+        public string Name { get; set; }
+        [Column(TypeName = "money")]
+        public decimal SellPrice { get; set; }
+        [Column(TypeName = "money")]
+        public decimal CostPrice { get; set; }
+        [Range(0, 100)]
+        public float Discount { get; set; }
+        public ushort Count { get; set; }
+        public string ImageUrl { get; set; }
+        public Category? Category { get; set; }
+        public bool IsDeleted { get; set; }
+    }
+}

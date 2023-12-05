@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using MVC_OneToMany.Contexts;
+
 namespace MVC_OneToMany;
 
 public class Program
@@ -9,10 +12,10 @@ public class Program
         // Add services to the container.
         builder.Services.AddControllersWithViews();
 
-        //builder.Services.AddDbContext<PustokDbContext>(options =>
-        //{
-        //    options.UseSqlServer(builder.Configuration["ConnectionStrings:MSSql"]);
-        //});
+        builder.Services.AddDbContext<PustokDbContext>(options =>
+        {
+            options.UseSqlServer(builder.Configuration["ConnectionStrings:MSSql"]);
+        });
 
         var app = builder.Build();
 

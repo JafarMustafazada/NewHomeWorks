@@ -23,7 +23,7 @@ internal class Program
         Console.WriteLine("SUCCESS");
         while (true) ;
     }
-    public static string HtmlToCshtml(string html, string area = "", string controller = "Home")
+    public static string HtmlToCshtml(string html, string area = "Admin", string controller = "Home")
     {
         string cshtml = "";
 
@@ -50,7 +50,7 @@ internal class Program
 
                 if (!temp.Contains("://")) 
                 {
-                    if (temp.EndsWith($".html{cshtml[^1]}")) temp = (String.IsNullOrWhiteSpace(area) ? ("") : (area + "/")) +
+                    if (temp.EndsWith($".html{cshtml[^1]}")) temp = "~/" + (String.IsNullOrWhiteSpace(area) ? ("") : (area + "/")) +
                             controller + "/" + temp.Substring(0, temp.Length - 6) + cshtml[^1];
                     else if (!(temp.Contains("~/") || temp[0] == '#')) temp = "~/" + 
                             (String.IsNullOrWhiteSpace(area) ? ("") : (area + "/")) + temp;
