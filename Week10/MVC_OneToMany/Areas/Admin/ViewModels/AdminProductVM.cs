@@ -6,10 +6,11 @@ namespace MVC_OneToMany.Areas.Admin.ViewModels
 {
     public class AdminProductVM
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [MaxLength(64)]
         public string Name { get; set; }
+        public string Description { get; set; }
         [Column(TypeName = "money")]
         public decimal SellPrice { get; set; }
         [Column(TypeName = "money")]
@@ -18,7 +19,8 @@ namespace MVC_OneToMany.Areas.Admin.ViewModels
         public float Discount { get; set; }
         public ushort Count { get; set; }
         public string ImageUrl { get; set; }
+        public int CategoryId { get; set; }
         public Category? Category { get; set; }
-        public bool IsDeleted { get; set; }
+        public bool IsDeleted { get; set; } = false;
     }
 }

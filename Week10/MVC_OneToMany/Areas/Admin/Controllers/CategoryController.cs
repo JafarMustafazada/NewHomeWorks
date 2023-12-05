@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MVC_OneToMany.Areas.Admin.ViewModels;
 using MVC_OneToMany.Contexts;
 using MVC_OneToMany.Models;
 
@@ -35,9 +36,9 @@ namespace MVC_OneToMany.Areas.Admin.Controllers
         }
 
         // POST: CategoryController/Create
+        //[ValidateAntiForgeryToken]
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Category vm)
+        public async Task<IActionResult> Create(AdminCategoryVM vm)
         {
             if (!ModelState.IsValid)
             {

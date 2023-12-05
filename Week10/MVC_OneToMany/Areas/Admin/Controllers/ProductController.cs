@@ -52,7 +52,7 @@ namespace MVC_OneToMany.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async Task<IActionResult> Create(Product vm)
+        public async Task<IActionResult> Create(AdminProductVM vm)
         {
             if (vm.CostPrice > vm.SellPrice)
             {
